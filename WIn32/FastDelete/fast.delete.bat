@@ -1,9 +1,12 @@
-@ECHO OFF
-SET FOLDER=%CD%
-SET NFolderName=%random%
-CD /
-RENAME %FOLDER% %NFolderName%
-DEL /F/Q/S "%FOLDER%\..\%NFolderName%" > NUL
-RMDIR /Q/S "%FOLDER%\..\%NFolderName%"
-PAUSE
-EXIT
+@echo off
+set folderName=%CD%
+set nFolderName=%random%
+cd /
+echo Rename folder %folderName% to %nFolderName%
+rename %folderName% %nFolderName%
+echo Start removal.
+del /F/Q/S "%folderName%\..\%nFolderName%" > nul
+rmdir /Q/S "%folderName%\..\%nFolderName%"
+echo Finish removal.
+pause
+exit
